@@ -1,0 +1,492 @@
+Press RETURN to get started.
+
+ACESSO RESTRITO - Instalacao Nuclear Angra-X-Grupo 03
+
+User Access Verification
+
+Password: 
+
+R-CCO-G03>enable
+Password: 
+R-CCO-G03#show running-config
+Building configuration...
+
+Current configuration : 1192 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname R-CCO-G03
+!
+!
+!
+enable secret 5 $1$mERr$hx5rVt7rPNoS4wqbXKX7m0
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ description LAN CCO
+ ip address 10.3.0.129 255.255.255.192
+ duplex auto
+ speed auto
+!
+interface FastEthernet1/0
+ description L1 para R-PER
+ ip address 10.3.1.49 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface FastEthernet2/0
+ description L2 para R-PROT
+ ip address 10.3.1.53 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface FastEthernet3/0
+ description L3 para R-VIT
+ ip address 10.3.1.57 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface FastEthernet4/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface FastEthernet5/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+router rip
+ version 2
+ network 10.0.0.0
+ no auto-summary
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^C
+ACESSO RESTRITO - Instalacao Nuclear Angra-X-Grupo 03
+^C
+!
+!
+!
+!
+!
+line con 0
+ password 7 080A455A08
+ login
+!
+line aux 0
+!
+line vty 0 4
+ password 7 080A455A08
+ login
+!
+!
+!
+end
+
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+
+Press RETURN to get started.
+
+ACESSO RESTRITO - Instalacao Nuclear Angra-X-Grupo 03 
+
+User Access Verification
+
+Password: 
+
+R-PER-G03>enable
+Password: 
+R-PER-G03#show running-config
+Building configuration...
+
+Current configuration : 1200 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname R-PER-G03
+!
+!
+!
+enable secret 5 $1$mERr$hx5rVt7rPNoS4wqbXKX7m0
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ description LAN Perimetro
+ ip address 10.3.0.1 255.255.255.128
+ duplex auto
+ speed auto
+!
+interface FastEthernet1/0
+ description L1 para R-CCO
+ ip address 10.3.1.50 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface FastEthernet2/0
+ description L4 para R-PROT
+ ip address 10.3.1.61 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface FastEthernet3/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface FastEthernet4/0
+ description LAN Base de Drones
+ ip address 10.3.1.1 255.255.255.224
+ duplex auto
+ speed auto
+!
+interface FastEthernet5/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+router rip
+ version 2
+ network 10.0.0.0
+ no auto-summary
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^C
+ACESSO RESTRITO - Instalacao Nuclear Angra-X-Grupo 03 ^C
+!
+!
+!
+!
+!
+line con 0
+ password 7 080A455A08
+ login
+!
+line aux 0
+!
+line vty 0 4
+ password 7 080A455A08
+ login
+!
+!
+!
+end
+
+--------------------------------------------------------------------------
+
+Press RETURN to get started.
+
+ACESSO RESTRITO - Instalacao Nuclear Angra-X-Grupo 03 
+
+User Access Verification
+
+Password: 
+
+R-PROT-G03>enable
+Password: 
+R-PROT-G03#show running-config
+Building configuration...
+
+Current configuration : 1203 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname R-PROT-G03
+!
+!
+!
+enable secret 5 $1$mERr$hx5rVt7rPNoS4wqbXKX7m0
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ description LAN Area Protegida
+ ip address 10.3.0.193 255.255.255.192
+ duplex auto
+ speed auto
+!
+interface FastEthernet1/0
+ description L5 para R-VIT
+ ip address 10.3.1.65 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface FastEthernet2/0
+ description L2 para R-CCO
+ ip address 10.3.1.54 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface FastEthernet3/0
+ description L4 para R-PER
+ ip address 10.3.1.62 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface FastEthernet4/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface FastEthernet5/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+router rip
+ version 2
+ network 10.0.0.0
+ no auto-summary
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^C
+ACESSO RESTRITO - Instalacao Nuclear Angra-X-Grupo 03 ^C
+!
+!
+!
+!
+!
+line con 0
+ password 7 080A455A08
+ login
+!
+line aux 0
+!
+line vty 0 4
+ password 7 080A455A08
+ login
+!
+!
+!
+end
+
+
+--------------------------------------------------------------------------
+
+Press RETURN to get started.
+
+ACESSO RESTRITO - Instalacao Nuclear Angra-X-Grupo 03 
+
+User Access Verification
+
+Password: 
+
+R-VIT-G03>enable
+Password: 
+R-VIT-G03#show running-config
+Building configuration...
+
+Current configuration : 1158 bytes
+!
+version 12.2
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname R-VIT-G03
+!
+!
+!
+enable secret 5 $1$mERr$hx5rVt7rPNoS4wqbXKX7m0
+!
+!
+!
+!
+!
+!
+no ip cef
+no ipv6 cef
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/0
+ description LAN Area Vital
+ ip address 10.3.1.33 255.255.255.240
+ duplex auto
+ speed auto
+!
+interface FastEthernet1/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface FastEthernet2/0
+ description L5 para R-PROT
+ ip address 10.3.1.66 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface FastEthernet3/0
+ description L3 para R-CCO
+ ip address 10.3.1.58 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface FastEthernet4/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface FastEthernet5/0
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+router rip
+ version 2
+ network 10.0.0.0
+ no auto-summary
+!
+ip classless
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^C
+ACESSO RESTRITO - Instalacao Nuclear Angra-X-Grupo 03 ^C
+!
+!
+!
+!
+!
+line con 0
+ password 7 080A455A08
+ login
+!
+line aux 0
+!
+line vty 0 4
+ password 7 080A455A08
+ login
+!
+!
+!
+end
